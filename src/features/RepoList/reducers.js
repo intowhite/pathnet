@@ -7,3 +7,10 @@ export const userRepos = (state = [] , action) => {
   }
   return state
 }
+
+export const showRepos = (state = false, action) => {
+  if(action.type === 'TOGGLE_REPOS') {
+    return action.bool
+  }
+  return state
+}

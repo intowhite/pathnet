@@ -1,3 +1,6 @@
+// label would wrap input or have proper for/ids defined
+// add some debouncing to the input search so not firing 100 reqs when typing
+
 import React from 'react'
 
 const Search = ({ searchTerm, updateSearchTerm, selectedUser }) => (
@@ -8,17 +11,20 @@ const Search = ({ searchTerm, updateSearchTerm, selectedUser }) => (
       <input value={searchTerm} onChange={(e) => updateSearchTerm(e.target.value)}></input>  
       <div className="button" onClick={() => updateSearchTerm(searchTerm)}>Get It!</div>
     </form>
-    {selectedUser.login &&
-    <div className="Search-user">
+    
+    <div className={(selectedUser.login ? 'show ' : ' ') + "Search-user"}>
       <div className="Search-userImage">
-        <div style={{
-          backgroundImage: 'url(' + selectedUser.avatar_url + ')'
-        }}></div>
+        <div style={
+          {
+            backgroundImage: 'url(' + selectedUser.avatar_url + ')'
+          }
+        }></div>
       </div>
       <div className="Search-userName">
-        {selectedUser.login} <span>({selectedUser.name})</span>
+        {selectedUser.login} {selectedUser.name && <span>({selectedUser.name})</span>}
       </div>
-    </div>}
+    </div>
+    
   </div>
 
 )

@@ -19,7 +19,9 @@ export const selectedUser = (state = {} , action) => {
     return action.value
   }
   if(action.type === 'CLEAR_USER') {
-    return {}
+    return {
+      name: null
+    }
   }
   return state
 }

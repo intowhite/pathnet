@@ -16,25 +16,106 @@ html * {
 
 body {
   font-family: 'Open Sans', sans-serif;
-  background: #121C24;
+  background-repeat: no-repeat;
+  background: linear-gradient(-40deg, #255B6F -85%,#13212C 15%);
+  background-size: 100%;
+  background-attachment: fixed;
+}
+
+.App {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.App-flex {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+@media (min-width: 1100px) {
+  .App-flex {
+    flex-direction: row;
+  }
 }
 
 .Header {
+  background: #091117;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
+.Header img {
+  height: 30px;
+  margin: 10px 40px;
+}
+
+.Header ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  color: #d1d1d1;
+  display: flex;
+  font-weight: 400;
+  font-size: 11px;
+  padding: 0 40px;
+  height: 100%;
+  height: 50px;
+}
+
+.Header ul li {
+  padding: 0 10px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  line-height: 1;
+}
+
+.Header ul li:hover {
+  background: #229BD5;
+  color: #091117;
+  cursor: pointer;
+}
+
+.Header ul li.login {
+  font-weight: 700;
 }
 
 .Search {
   text-align: center;
-  background: #091117;
   padding: 20px;
+}
+
+@media (min-width: 1100px) {
+  .Search {
+    width: 380px;
+    min-width: 380px;
+  }
 }
 
 .Search-form {
   display: inline-flex;
   align-items: center;
   margin: 0 auto;
-  margin-bottom: 20px;
   transform: translateX(-50px);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+@media (max-width: 650px) {
+  .Search-form {
+    transform: none;
+    flex-wrap: wrap;
+    display: flex;
+  }
+}
+
+@media (min-width: 1100px) {
+  .Search-form {
+    transform: none;
+  }
 }
 
 .Search-form label {
@@ -44,6 +125,23 @@ body {
   width: 100px;
   text-align: right;
   padding-right: 10px;
+}
+
+@media (max-width: 650px) {
+  .Search-form label {
+    width: 100%;
+    text-align: center;
+    padding-bottom: 10px;
+  }
+}
+
+@media (min-width: 1100px) {
+  .Search-form label {
+    width: 100%;
+    padding: 0;
+    text-align: center;
+    padding-bottom: 10px;
+  }
 }
 
 .Search-form input {
@@ -68,18 +166,43 @@ body {
   line-height: 1;
   padding: 0 15px;
   cursor: pointer;
-  color: #fff;
-  font-size: 14px;
+  color: #091117;
+  font-size: 13px;
+  font-weight: 700;
   border-top-right-radius: 4px;
   border-bottom-right-radius: 4px;
 }
 
+.Search-form .button:hover {
+  background: #50b5e6;
+}
+
+.Search-user {
+  margin-top: 20px;
+  max-height: 0;
+  transition: .3s;
+  opacity: 0;
+  overflow: hidden;
+}
+
+.Search-user.show {
+  max-height: 210px;
+  opacity: 1;
+}
+
 .Search-userImage {
+  opacity: 0;
+  transition: 0.3s;
+  transition-delay: 0.3s;
+}
+
+.Search-user.show .Search-userImage {
+  opacity: 1;
 }
 
 .Search-userImage > div {
-  width: 200px;
-  height: 200px;
+  width: 180px;
+  height: 180px;
   background-size: cover;
   border-radius: 20px;
   margin: 0 auto;
@@ -89,9 +212,124 @@ body {
   color: #e1e1e1;
   font-weight: 300;
   padding-top: 10px;
-  font-size: 15px;
+  font-size: 14px;
 }
 
 .RepoList {
   text-align: center;
+  background: #121C24;
+  padding: 20px;
+  flex-grow: 1;
+}
+
+@media (min-width: 1300px) {
+  .RepoList-repos {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 20px;
+    max-width: 1500px;
+    margin: 0 auto;
+  }
+}
+
+.RepoList-count {
+  font-size: 18px;
+  font-weight: 300;
+  color: #ffffff;
+  margin-bottom: 30px;
+  border-bottom: 2px solid #229BD5;
+  padding-bottom: 15px;
+  max-width: 130px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.RepoList-repo {
+  background: #fff;
+  max-width: 600px;
+  margin: 0 auto;
+  margin-bottom: 15px;
+  transition: 0.2s;
+  transform: translateY(10px);
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  box-shadow: 0 6px 15px -2px rgba(0,0,0,0.2);
+}
+
+@media (min-width: 1300px) {
+  .RepoList-repo {
+    width: calc(50% - 40px);
+    margin: 20px;
+  }
+}
+
+@media (min-width: 1600px) {
+  .RepoList-repo {
+    width: calc(33% - 40px);
+  }
+}
+
+.RepoList-repos.show-repos .RepoList-repo {
+  opacity: 1;
+  transform: translateY(0px);
+}
+
+.RepoList-repoTitle {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 20px;
+  font-size: 12px;
+  border-bottom: 1px solid #e1e1e1;
+  background: #193A4B;
+  color: #fff;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  position: relative;
+  top: -1px;
+}
+
+.RepoList-repo:hover .RepoList-repoTitle {
+  background: #204c63;
+}
+
+.RepoList-repoDescription {
+  line-height: 1.6;
+  color: #787878;
+  text-align: left;
+  padding: 10px 20px;
+  padding-top: 9px;
+}
+
+.RepoList-repoLanguage {
+  border-top: 1px solid #f1f1f1;
+  padding: 5px 10px;
+  text-align: right;
+}
+
+.RepoList-repoLanguage > span {
+  font-size: 10px;
+  background: #2B9FD7;
+  color: #fff;
+  padding: 4px 10px;
+  padding-bottom: 5px;
+  line-height: 1;
+  border-radius: 100px;
+  width: auto;
+  display: inline-flex;
+  margin-left: auto;
+}
+
+.Footer {
+  background: #0a1117;
+  font-size: 11px;
+  padding: 10px;
+  text-align: right;
+  color: #c1c1c1;
+}
+
+.Footer a {
+  color: #229BD5;
+  text-decoration: none;
 }

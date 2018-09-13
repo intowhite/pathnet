@@ -1,28 +1,48 @@
+// animations could be implemented much better, esp using react's transition group addon
+// conditional rendering here is questionable
+
 import React from 'react'
 import { distanceInWordsStrict } from 'date-fns'
 
-const RepoList = ({userRepos}) => {
+const RepoList = ({ userRepos, showRepos }) => {
   if (userRepos.length) {
     return (
       <div className="RepoList">
-        Repolist
-        {userRepos.map(repo => 
-        {
-          return (
-            <div>
-              {repo.description}
-              {repo.forks}
-              {distanceInWordsStrict(repo.created_at, new Date())}
-              {repo.language}
+        <div className="RepoList-count">
+          {userRepos.length} Repos:
+        </div>
+        <div className={(showRepos ? 'show-repos ' : ' ') + 'RepoList-repos'}>
+          {userRepos.map((repo,id) => (
+            <div className="RepoList-repo" key={repo.id} style={{transitionDelay: (id * .05 + 's')}}>
+              <div className="RepoList-repoTitle">
+                <div className="RepoList-repoName">
+                  {repo.name}
+                </div>
+                <div className="RepoList-repoAge">
+                  {distanceInWordsStrict(repo.created_at, new Date())} ago
+                </div>
+              </div>
+              { repo.description &&
+                <div className="RepoList-repoDescription">
+                  {repo.description}
+                </div>
+              }
+              { repo.language &&
+                <div className="RepoList-repoLanguage">
+                  <span>{repo.language}</span>
+                </div>
+              }
             </div>
-          )
-        }
-        )}
+          ))}
+        </div>
       </div>
     )
   } else {
-    return null
+    return (
+      <div className="RepoList"></div>
+    )
   }
 }
 
 export default RepoList
+
