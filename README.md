@@ -12,5 +12,5 @@
 
 # Notes
 - Have annotated a few places for easy improvement
-- Should work responsively across tiny-wide monitors
+- Should work responsively across tiny - wide windows
 - Vanilla CSS just to avoid extra configuration
