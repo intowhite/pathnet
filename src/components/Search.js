@@ -1,19 +1,22 @@
 import React from 'react'
-import { selectUser } from '../features/Search/actions';
 
 const Search = ({ searchTerm, updateSearchTerm, selectedUser }) => (
+
   <div className="Search">
-    <div className="Search-form">
-      Search
+    <form className="Search-form" onSubmit={(e) => {e.preventDefault(); updateSearchTerm(searchTerm)}}>
+      <label htmlFor="">Username:</label>
       <input value={searchTerm} onChange={(e) => updateSearchTerm(e.target.value)}></input>  
-    </div>
+      <div className="button" onClick={() => updateSearchTerm(searchTerm)}>Get It!</div>
+    </form>
+    {selectedUser.login &&
     <div className="Search-user">
-      <div className="Search-userLogin">
+      <div className="Search-userName">
         <img src={selectedUser.avatar_url} alt=""/>
-        {selectedUser.login}
+        {selectedUser.login} <span>({selectedUser.name})</span>
       </div>
-    </div>
+    </div>}
   </div>
+
 )
 
 export default Search

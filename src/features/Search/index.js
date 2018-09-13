@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import Search from '../../components/Search'
-import { updateSearchTerm, selectUser } from './actions'
+import { updateSearchTerm } from './actions'
 
 const mapStateToProps = (state) => ({
   searchTerm: state.searchTerm,
@@ -9,8 +9,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  updateSearchTerm: (term) => dispatch(updateSearchTerm(term)),
-  selectUser: (user) => dispatch(selectUser(user))
+  updateSearchTerm: (term) => dispatch(updateSearchTerm(term))
 })
 
 export default connect(mapStateToProps,mapDispatchToProps)(Search)

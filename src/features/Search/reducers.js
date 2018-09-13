@@ -21,7 +21,7 @@ export const selectedUser = (state = {} , action) => {
   return state
 }
 
-export const selectedUserRepos = (state = [] , action) => {
+export const userRepos = (state = [] , action) => {
   if(action.type === 'FETCH_REPOS_SUCCESS') {
     return action.repos
   }

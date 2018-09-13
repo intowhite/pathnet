@@ -1,5 +1,64 @@
-body {
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,700,800');
+
+html, body, #root {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  height: 100%;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+html * {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  background: #091117;
+}
+
+.Header {
+
+}
+
+.Search {
+  text-align: center;
+}
+
+.Search-form {
+  display: flex;
+  align-items: center;
+  background: green;
+}
+
+.Search-form label {
+  color: #fff;
+}
+
+.Search-form input {
+  height: auto;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  background: #1F2C35;
+  color: #f1f1f1;
+  font-weight: 300;
+  letter-spacing: 0.02em;
+}
+
+.Search-form .button {
+  padding: 0;
+  background: #229BD5;
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  cursor: pointer;
+  color: #fff;
+}
+
+.RepoList {
+  text-align: center;
 }

@@ -1,17 +1,11 @@
 import { combineReducers } from 'redux'
-import { searchTerm, searchLoading, selectedUser, selectedUserRepos } from './features/Search/reducers'
-
-// Initial state stuff
-const initialState = {
-  
-}
+import { searchTerm, searchLoading, selectedUser, userRepos } from './features/Search/reducers'
 
 const rootReducer = combineReducers({
   searchTerm,
   searchLoading,
   selectedUser,
-  selectedUserRepos,
-  ...initialState
+  userRepos
 })
 
 export default rootReducer
