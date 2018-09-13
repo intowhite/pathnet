@@ -1,4 +1,4 @@
-export const searchTerm = (state = 'tests', action) => {
+export const searchTerm = (state = 'tests' , action) => {
   switch (action.type) {
     case 'UPDATE_SEARCH_TERM':
       return action.term
@@ -7,16 +7,23 @@ export const searchTerm = (state = 'tests', action) => {
   }
 }
 
-export const searchLoading = (state = false, action) => {
+export const searchLoading = (state = false , action) => {
   if(action.type === 'SET_LOADING') {
     return action.loading
   }
   return state
 }
 
-export const selectedUser = (state = {}, action) => {
+export const selectedUser = (state = {} , action) => {
   if(action.type === 'FETCH_USERS_SUCCESS') {
     return action.value
+  }
+  return state
+}
+
+export const selectedUserRepos = (state = [] , action) => {
+  if(action.type === 'FETCH_REPOS_SUCCESS') {
+    return action.repos
   }
   return state
 }

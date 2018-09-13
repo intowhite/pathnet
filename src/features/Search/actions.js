@@ -14,10 +14,11 @@ export const updateSearchTerm = (value) => {
     })
     // Simulate some load time so I can show the loading animation bs
     setTimeout(
+
       () => {
         fetch('https://api.github.com/users/' + value)
-          .then((r) => r.json())
-          .then((r) => {
+          .then(r => r.json())
+          .then(r => {
             dispatch({
               type: 'FETCH_USERS_SUCCESS',
               value: r
@@ -26,9 +27,25 @@ export const updateSearchTerm = (value) => {
               type: 'SET_LOADING',
               loading: false
             })
+
+            //Fake loading repos lag...
+            setTimeout(
+              
+              () => {
+                fetch(r.repos_url)
+                  .then(repos => repos.json())
+                  .then(repos => {
+                    dispatch({
+                      type: 'FETCH_REPOS_SUCCESS',
+                      repos: repos
+                    })
+                  })
+              },
+              500
+            )
         })
       },
-      50
+      500
     )
   }
 }

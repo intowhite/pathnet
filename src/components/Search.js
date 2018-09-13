@@ -9,6 +9,7 @@ const Search = ({ searchTerm, updateSearchTerm, selectedUser }) => (
     </div>
     <div className="Search-user">
       <div className="Search-userLogin">
+        <img src={selectedUser.avatar_url} alt=""/>
         {selectedUser.login}
       </div>
     </div>
