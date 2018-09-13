@@ -11,6 +11,6 @@
 ### `http://localhost:xxxx`
 
 # Notes
-- Have annotated a few places where the code could obviousy be improved
+- Have annotated a few places for easy improvement
 - Should work responsively across tiny-wide monitors
 - Vanilla CSS just to avoid extra configuration
