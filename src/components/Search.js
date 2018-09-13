@@ -9,10 +9,11 @@ const Search = ({ searchTerm, updateSearchTerm, selectedUser }) => (
   <div className="Search">
     <form className="Search-form" onSubmit={(e) => {e.preventDefault(); updateSearchTerm(searchTerm)}}>
       <label htmlFor="">Username:</label>
-      <input value={searchTerm} onChange={(e) => updateSearchTerm(e.target.value)}></input>  
-      <div className="button" onClick={() => updateSearchTerm(searchTerm)}>Get It!</div>
+      <div>
+        <input value={searchTerm} onChange={(e) => updateSearchTerm(e.target.value)}></input>  
+        <div className="button" onClick={() => updateSearchTerm(searchTerm)}>Get It!</div>
+      </div>
     </form>
-    
     <div className={(selectedUser.login ? 'show ' : ' ') + "Search-user"}>
       <div className="Search-userImage">
         <div style={
@@ -25,7 +26,6 @@ const Search = ({ searchTerm, updateSearchTerm, selectedUser }) => (
         {selectedUser.login} {selectedUser.name && <span>({selectedUser.name})</span>}
       </div>
     </div>
-    
   </div>
 
 )

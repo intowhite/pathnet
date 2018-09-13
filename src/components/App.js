@@ -1,4 +1,4 @@
-// Header and Footer would be their own components, 
+// Header and Footer would be components
 // rename App to something more descriptive
 // import logo ensures its bundled, but in general would avoid importing images
 // li nav elements would be proper a links
@@ -17,10 +17,18 @@ class App extends Component {
             <img src={logo} alt=""/>
           </a>
           <ul>
-            <li>Products</li>
-            <li>Services</li>
-            <li>Pricing</li>
-            <li className="login">Login</li>
+            <li>
+              <a href="">Products</a>
+            </li>
+            <li>
+              <a href="">Services</a>
+            </li>
+            <li>
+              <a href="">Pricing</a>
+            </li>
+            <li className="login">
+              <a href="">Login</a>
+            </li>
           </ul>
         </div>
         <div className="App-flex">

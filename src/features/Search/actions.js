@@ -43,7 +43,7 @@ export const updateSearchTerm = (value) => {
                 type: 'TOGGLE_REPOS',
                 bool: true
               })
-            }, 200)
+            }, 400)
           })
       })
   }
