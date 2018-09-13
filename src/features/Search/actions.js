@@ -12,6 +12,9 @@ export const updateSearchTerm = (value) => {
       type: 'SET_LOADING',
       loading: true
     })
+    dispatch({
+      type: 'CLEAR_USER'
+    })
     // Simulate some load time so I can show the loading animation bs
     setTimeout(
 

@@ -1,9 +1,9 @@
-export const selectedUser = (state = null, action) => {
-  if(action.type === 'SELECT_USER') {
-    return action.user
+export const userRepos = (state = [] , action) => {
+  if(action.type === 'FETCH_REPOS_SUCCESS') {
+    return action.repos
   }
   if(action.type === 'CLEAR_USER') {
-    return null
+    return []
   }
   return state
 }

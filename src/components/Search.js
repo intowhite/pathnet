@@ -10,8 +10,12 @@ const Search = ({ searchTerm, updateSearchTerm, selectedUser }) => (
     </form>
     {selectedUser.login &&
     <div className="Search-user">
+      <div className="Search-userImage">
+        <div style={{
+          backgroundImage: 'url(' + selectedUser.avatar_url + ')'
+        }}></div>
+      </div>
       <div className="Search-userName">
-        <img src={selectedUser.avatar_url} alt=""/>
         {selectedUser.login} <span>({selectedUser.name})</span>
       </div>
     </div>}

@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux'
-import { searchTerm, searchLoading, selectedUser, userRepos } from './features/Search/reducers'
+import { searchTerm, searchLoading, selectedUser } from './features/Search/reducers'
+import { userRepos } from './features/RepoList/reducers'
 
 const rootReducer = combineReducers({
   searchTerm,
