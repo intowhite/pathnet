@@ -1,5 +1,6 @@
 // label would wrap input or have proper for/ids defined
 // add some debouncing to the input search so not firing 100 reqs when typing
+// need to add 'none found' logic and messaging
 
 import React from 'react'
 

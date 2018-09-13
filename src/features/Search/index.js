@@ -4,8 +4,7 @@ import { updateSearchTerm } from './actions'
 
 const mapStateToProps = (state) => ({
   searchTerm: state.searchTerm,
-  selectedUser: state.selectedUser,
-  selectedUserRepos: state.selectedUserRepos
+  selectedUser: state.selectedUser
 })
 
 const mapDispatchToProps = dispatch => ({

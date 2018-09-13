@@ -24,6 +24,7 @@ export const updateSearchTerm = (value) => {
 
         fetch(r.repos_url + '?')
           .then(repos => {
+            // horrible, just needed to make sure response was coming back from GH and not localhost
             if (repos.type === 'cors') {
               return repos.json();
             }

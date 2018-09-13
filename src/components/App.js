@@ -13,7 +13,9 @@ class App extends Component {
     return (
       <div className="App">
         <div className="Header">
-          <img src={logo} alt=""/>
+          <a href="http://path.network">
+            <img src={logo} alt=""/>
+          </a>
           <ul>
             <li>Products</li>
             <li>Services</li>

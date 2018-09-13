@@ -1,5 +1,4 @@
 // animations could be implemented much better, esp using react's transition group addon
-// conditional rendering here is questionable
 
 import React from 'react'
 import { distanceInWordsStrict } from 'date-fns'
@@ -10,6 +9,7 @@ const RepoList = ({ userRepos, showRepos }) => {
       <div className="RepoList">
         <div className="RepoList-count">
           {userRepos.length} Repos:
+          <div className="RepoList-countBar"></div>
         </div>
         <div className={(showRepos ? 'show-repos ' : ' ') + 'RepoList-repos'}>
           {userRepos.map((repo,id) => (
@@ -39,7 +39,12 @@ const RepoList = ({ userRepos, showRepos }) => {
     )
   } else {
     return (
-      <div className="RepoList"></div>
+      <div className="RepoList">
+        <div className="RepoList-count">
+          Search for a user to get started
+          <div className="RepoList-countBar"></div>
+        </div>
+      </div>
     )
   }
 }
