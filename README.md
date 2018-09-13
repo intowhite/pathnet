@@ -5,6 +5,7 @@
 - Start fileserver
 ### `serve -s build`
 - Visit output url (Local)
+### `http://localhost:xxxx`
 
 #Notes
 - Have annotated a few places where the code could obviousy be improved
