@@ -1,1 +1,2 @@
-### `npm i serve`
+### `cd pathnet`
+### `npm i serve -g`
